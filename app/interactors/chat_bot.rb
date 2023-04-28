@@ -18,9 +18,9 @@ class ChatBot
             inbound = InboundInfo.call(remark: message.text)
             response =
               if inbound.error
-                "Remark: #{inbound.remark}\nDownload: #{inbound.download} MB\nUpload: #{inbound.upload} MB\nTotal: #{inbound.total} MB\nExpire Time: #{inbound.expiryTime}"
-              else
                 inbound.error
+              else
+                "Remark: #{inbound.remark}\nDownload: #{inbound.download} MB\nUpload: #{inbound.upload} MB\nTotal: #{inbound.total} MB\nExpire Time: #{inbound.expiryTime}"
               end
             bot.api.send_message(chat_id: message.chat.id, text: response)
           end
