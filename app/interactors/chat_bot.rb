@@ -16,7 +16,7 @@ class ChatBot
                                  text: "Hello, #{message.from.first_name}\n#{PARAM_ERROR}")
           else
             inbound = InboundInfo.call(remark: message.text)
-            response = "Remark: #{inbound.remark}\nDownload: #{inbound.download}\nUpload: #{inbound.upload}\nTotal: #{inbound.total}\nExpire Time: #{inbound.expiryTime}"
+            response = "Remark: #{inbound.remark}\nDownload: #{inbound.download} MB\nUpload: #{inbound.upload} MB\nTotal: #{inbound.total} MB\nExpire Time: #{inbound.expiryTime}"
             bot.api.send_message(chat_id: message.chat.id, text: response)
           end
         rescue StandardError => e
