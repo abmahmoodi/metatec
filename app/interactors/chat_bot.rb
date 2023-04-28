@@ -20,7 +20,8 @@ class ChatBot
               if inbound.error
                 inbound.error
               else
-                "Remark: #{inbound.remark}\nDownload: #{inbound.download} MB\nUpload: #{inbound.upload} MB\nTotal: #{inbound.total} MB\nExpire Time: #{inbound.expiryTime}"
+                status = inbound.enable ? 'Active' : 'Inactive'
+                "Remark: #{inbound.remark}\nDownload: #{inbound.download} MB\nUpload: #{inbound.upload} MB\nTotal: #{inbound.total} MB\nExpire Time: #{inbound.expiryTime}\n Status: #{}"
               end
             bot.api.send_message(chat_id: message.chat.id, text: response)
           end

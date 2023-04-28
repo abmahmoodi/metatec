@@ -12,6 +12,7 @@ class InboundInfo
     context.upload = (inbound['up'] / 1024) / 1024
     context.download = (inbound['down'] / 1024) / 1024
     context.total = (inbound['total'] / 1024) / 1024
-    context.expiryTime = Time.at(inbound['expiryTime'] / 1000).to_datetime
+    context.expiryTime = Time.at(inbound['expiryTime'] / 1000).to_datetime.in_time_zone('Tehran').strftime('%F')
+    context.enable = inbound['enable']
   end
 end
