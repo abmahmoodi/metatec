@@ -3,7 +3,8 @@ class XuiLogin
 
   USERNAME = ENV['USERNAME']
   PASSWORD = ENV['PASSWORD']
-  BASE_URI = "http://iran.metatec.fun:53968/login?username=#{USERNAME}&password=#{PASSWORD}"
+  XUI_URL = ENV['XUI_URL']
+  BASE_URI = "#{XUI_URL}/login?username=#{USERNAME}&password=#{PASSWORD}"
   def call
     result = HTTParty.post("#{BASE_URI}",
                            :headers => { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
