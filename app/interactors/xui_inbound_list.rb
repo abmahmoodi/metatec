@@ -3,7 +3,8 @@ class XuiInboundList
 
   USERNAME = ENV['USERNAME']
   PASSWORD = ENV['PASSWORD']
-  BASE_URI = 'http://iran.metatec.fun:53968/xui/inbound/list'
+  XUI_URL = ENV['XUI_URL']
+  BASE_URI = '#{XUI_URL}/xui/inbound/list'
   def call
     result = HTTParty.post("#{BASE_URI}",
                            :headers => {
